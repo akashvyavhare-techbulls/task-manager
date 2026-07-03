@@ -6,7 +6,7 @@ jobs:
   hello:
     runs-on: ubuntu-latest
 
-    step:
+    steps:
       say Hello: 
 
         run: echo "hello from $USER"
