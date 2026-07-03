@@ -1,0 +1,12 @@
+name: test CI 
+
+on: [push]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    step:
+      say Hello: 
+
+        run: echo "hello from $USER"

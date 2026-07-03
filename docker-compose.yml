@@ -1,0 +1,28 @@
+services:
+  task-manager-app:
+
+    build: .
+    image: akashvtavhare/taskmanagerapp
+    container_name: task-manager-app
+
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db-staigng:5432/tasksdb
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+
+    ports:
+      - "8080:8080" 
+    depends_on:
+      - postgres-db-staigng
+
+  postgres-db-staigng:
+    image: postgres:16
+    container_name: postgres-staigng-db
+
+    environment:
+      POSTGRES_DB: tasksdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+
+    ports:
+      - "5433:5432"
