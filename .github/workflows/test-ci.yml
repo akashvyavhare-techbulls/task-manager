@@ -7,6 +7,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      say Hello: 
-
+      - name: say Hello
         run: echo "hello from $USER"
