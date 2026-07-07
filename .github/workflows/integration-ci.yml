@@ -1,0 +1,31 @@
+name: compile-ci 
+
+on:
+  pull_request:
+
+jobs:
+  complie:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres-db:
+        image: postgres:16
+        env: 
+          POSTGRES_DB: taskmanager
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v4
+
+      - name: setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17' 
+
+      - name: maven verify
+        run: mvn verify
