@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: git checkout
-        uses: action/checkout@v4
+        uses: actions/checkout@v4
 
       - name: setup Java
-        uses: action/java-setup@v4
+        uses: actions/java-setup@v4
 
       - name: maven verify 
         run: mvn verify
