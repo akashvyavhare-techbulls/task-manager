@@ -1,4 +1,4 @@
-name: test CI 
+name: compile-ci 
 
 on:
   pull_request:
