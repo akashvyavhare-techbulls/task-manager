@@ -36,7 +36,10 @@ jobs:
         run: mvn verify
       
       - name: Build Image
-        run: docker build -t task-manager-app:latest .
+        run: docker build -t akashvyavharetechbulls/task-manager-app:latest .
+
+      - name: Login to registry
+        run:  echo "${{secret.DOCKER_TOCKEN}}" | docker login -u akashvyavharetechbulls --password-stdin
 
       - name: push to registry
-        run: echo "pused"
+        run: docker push akashvyavharetechbulls/task-manager-app:latest
