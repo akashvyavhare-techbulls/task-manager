@@ -1,8 +1,7 @@
 services:
   task-manager-app:
 
-    build: .
-    image: akashvtavhare/taskmanagerapp
+    image: akashvyavharetechbulls/task-manager-app:latest
     container_name: task-manager-app
 
     environment:
