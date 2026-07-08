@@ -1,4 +1,4 @@
-name: compile-ci 
+name: Integration-CI 
 
 on:
   pull_request:
