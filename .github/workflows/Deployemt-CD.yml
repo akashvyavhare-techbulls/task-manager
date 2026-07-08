@@ -36,7 +36,7 @@ jobs:
         run: mvn verify
       
       - name: Build Image
-        run: docker build -t taskManager-app:latest .
+        run: docker build -t task-manager-app:latest .
 
       - name: push to registry
         run: echo "pused"
