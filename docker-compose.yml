@@ -3,25 +3,12 @@ services:
 
     image: akashvyavharetechbulls/task-manager-app:latest
     container_name: task-manager-app
-
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db-staigng:5432/taskmanager
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ep-crimson-voice-at02ibpe.c-9.us-east-1.aws.neon.tech:5432/taskmanager
+      - SPRING_DATASOURCE_USERNAME=neondb_owner
+      - SPRING_DATASOURCE_PASSWORD=npg_1FIu6TiwZDbz
 
     ports:
       - "8080:8080" 
     depends_on:
       - postgres-db-staigng
-
-  postgres-db-staigng:
-    image: postgres:16
-    container_name: postgres-staigng-db
-
-    environment:
-      POSTGRES_DB: taskmanager
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-
-    ports:
-      - "5432:5432"
