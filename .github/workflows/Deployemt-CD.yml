@@ -39,7 +39,7 @@ jobs:
         run: docker build -t akashvyavharetechbulls/task-manager-app:latest .
 
       - name: Login to registry
-        run:  echo "${{secret.DOCKER_TOCKEN}}" | docker login -u akashvyavharetechbulls --password-stdin
+        run:  echo "${{secrets.DOCKER_TOKEN}}" | docker login -u akashvyavharetechbulls --password-stdin
 
       - name: push to registry
         run: docker push akashvyavharetechbulls/task-manager-app:latest
