@@ -1,0 +1,42 @@
+name: deployemnt-workflow
+
+on:
+  push:
+    branch:
+      main:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      postgres-db:
+        image: postgres:16
+
+        env:
+          POSTGRES_DB: taskmanager
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        
+        ports:
+          - 5432:5432
+        
+    steps:
+      - name: checkout-Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          destribution: temurin
+          java-version: 17
+
+      - name: Build and Test
+        run: mvn verify
+      
+      - name: Build Image
+        run: docker build -t taskManager-app:latest .
+
+      - name: push to registry
+        run: echo "pused"
