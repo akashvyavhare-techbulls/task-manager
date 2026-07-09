@@ -3,8 +3,8 @@ name: Integration-CI
 on:
   pull_request:
   push:
-    branch:
-      main:
+    branches:
+      - main
 
 jobs:
   complie:

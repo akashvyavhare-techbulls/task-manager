@@ -2,8 +2,8 @@ name: deployemnt-workflow
 
 on:
   push:
-    branch:
-      main:
+    branches:
+      - main
 
 jobs:
   build:
