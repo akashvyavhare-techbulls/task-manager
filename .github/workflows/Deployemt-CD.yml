@@ -36,13 +36,15 @@ jobs:
         run: mvn verify
       
       - name: Build Image
-        run: docker build -t akashvyavharetechbulls/task-manager-app:latest .
+        run: docker build -t akashvyavharetechbulls/task-manager-app:${{github.sha}}  -t akashvyavharetechbulls/task-manager-app:latest .
 
       - name: Login to registry
         run:  echo "${{secrets.DOCKER_TOKEN}}" | docker login -u akashvyavharetechbulls --password-stdin
 
       - name: push to registry
-        run: docker push akashvyavharetechbulls/task-manager-app:latest
+        run: |
+          docker push akashvyavharetechbulls/task-manager-app:latest
+          docker push akashvyavharetechbulls/task-manager-app:${{ github.sha }}
 
       - name: configure-ssh
         run: |
