@@ -43,9 +43,18 @@ jobs:
 
       - name: push to registry
         run: |
-          docker push akashvyavharetechbulls/task-manager-app:latest
           docker push akashvyavharetechbulls/task-manager-app:${{ github.sha }}
+          docker push akashvyavharetechbulls/task-manager-app:latest
 
+  
+  
+  deploy:
+
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
       - name: configure-ssh
         run: |
           mkdir -p ~/.ssh
