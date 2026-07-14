@@ -1,7 +1,7 @@
 services:
   task-manager-app:
 
-    image: akashvyavharetechbulls/task-manager-app:latest
+    image: akashvyavharetechbulls/task-manager-app:${IMAGE_TAG:-latest}
     container_name: task-manager-app
     environment:
       - SPRING_DATASOURCE_URL=${SPRING_DATASOURCE_URL}
